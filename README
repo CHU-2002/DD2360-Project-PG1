@@ -1,6 +1,6 @@
 Must have the CUDA Toolkit installed and nvcc working
 Must have Rodinia 3.1 testbench environment to run nn
-Only replace the file "nn_cuda.cu" in "nn" folder with the improved one, and modify the new file name to "nn_cuda.cu".
+Only replace the file "nn_cuda.cu" in cuda\nn folder with the improved one, and modify the new file name to "nn_cuda.cu".
 
 To build and run nearest neighbor:
 	make nn
