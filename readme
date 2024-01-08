@@ -1,0 +1,36 @@
+Must have the CUDA Toolkit installed and nvcc working
+Must have Rodinia 3.1 testbench environment to run nn
+Only replace the file "nn_cuda.cu" in cuda\nn folder with the improved one, and modify the new file name to "nn_cuda.cu".
+
+To build and run nearest neighbor:
+	make nn
+	./nn filelist_4 -r 3 -lat 30 -lng 90
+
+To generate new data sets:
+	Change directory to data\nn\inputGen
+	make hurricanegen
+	./hurricanegen <num records> <num files>
+	Edit the filelist file with modifying a route for every .db in the file as the following example:
+	../../data/nn/inputGen/cane669k_6_0.db
+	../../data/nn/inputGen/cane669k_6_1.db
+	../../data/nn/inputGen/cane669k_6_2.db
+	../../data/nn/inputGen/cane669k_6_3.db
+	../../data/nn/inputGen/cane669k_6_4.db
+	../../data/nn/inputGen/cane669k_6_5.db
+	Then copy the filelist file to where nn exists and is made
+
+Full Usage:
+
+  nearestNeighbor [filename] -r [int] -lat [float] -lng [float] [-h]
+  
+  example:
+  $ ./nearestNeighbor filelist.txt -r 5 -lat 30 -lng 90
+  
+  filename     the filename that lists the data input files
+  -r [int]     the number of records to return (default: 10)
+  -lat [float] the latitude for nearest neighbors (default: 0)
+  -lng [float] the longitude for nearest neighbors (default: 0)
+  
+  -h, --help   Display the help file  
+  
+  Note: The filename is required as the first parameter.

@@ -149,7 +149,7 @@ __device__ void quickSort(float* arr, int* index, int low, int high, int* stack)
 /*
 find the min "numMin" elements in the array from "offset_mul" to "offset_mul + offset"
 the result is stored in "d_minLoc" from "offset_min" to "offset_min + numMin"
-time complexity is O(numRecords/sqrt(numRecords/numMin))
+time complexity is O(sqrt(numRecords * numMin))
 find_min and find_min_final uses the same algorithm, Quickselect
 */
 
@@ -200,7 +200,7 @@ __global__ void find_min( float *d_distances, int numRecords, int *d_minLoc, int
 /*
 find the min "numMin" element on the base of the result of "find_min"
 the result is stored in "d_minLoc" from "0" to "numMin"
-time complexity is O(sqrt(numRecords/numMin) * numMin)
+time complexity is O(sqrt(numRecords * numMin))
 */
 __global__ void find_min_final(float *d_distances, int num, int *d_minLoc, int numMin, float *min_dis, float *dis_min, int *d_minmem, int *stack)
 {
